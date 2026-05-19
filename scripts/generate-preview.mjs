@@ -10,7 +10,7 @@ const outPath = path.resolve(__dirname, '..', 'public', 'convite', 'preview.jpg'
 
 const browser = await chromium.launch();
 const ctx = await browser.newContext({
-  viewport: { width: 1200, height: 630 },
+  viewport: { width: 1080, height: 1080 },
   deviceScaleFactor: 1,
 });
 const page = await ctx.newPage();
@@ -23,7 +23,7 @@ await page.screenshot({
   path: outPath,
   type: 'jpeg',
   quality: 88,
-  clip: { x: 0, y: 0, width: 1200, height: 630 },
+  clip: { x: 0, y: 0, width: 1080, height: 1080 },
 });
 
 await browser.close();
