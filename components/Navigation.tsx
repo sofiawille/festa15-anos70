@@ -35,11 +35,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled || isOpen ? 'bg-groovy-cream/95 backdrop-blur-md border-b-4 border-groovy-brown' : 'bg-transparent'
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-groovy-brown/95 backdrop-blur-md border-b-4 border-groovy-yellow ${scrolled ? 'shadow-lg shadow-groovy-brownDeep/50' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20 gap-4">
           <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer group" onClick={handleLogoClick}>
@@ -47,8 +43,8 @@ const Navigation: React.FC = () => {
               <Flower className="w-8 h-8 md:w-10 md:h-10 text-groovy-pink animate-spin-slower group-hover:text-groovy-yellow transition-colors sticker-sm" fill="#E84A8D" strokeWidth={2.5} />
             </div>
             <span className="font-groovy text-lg md:text-2xl tracking-widest whitespace-nowrap">
-              <span className={scrolled || isOpen ? 'text-groovy-brown' : 'text-3d-cream'}>SOFIA</span>
-              <span className={scrolled || isOpen ? 'text-groovy-pink' : 'text-3d-yellow'}>15</span>
+              <span className="text-groovy-cream group-hover:text-groovy-yellow transition-colors">SOFIA</span>
+              <span className="text-groovy-yellow group-hover:text-groovy-pink transition-colors">15</span>
             </span>
           </div>
 
@@ -58,9 +54,7 @@ const Navigation: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className={`font-retro text-[10px] lg:text-sm transition-colors duration-200 uppercase tracking-wide whitespace-nowrap hover:text-groovy-pink ${
-                    scrolled || isOpen ? 'text-groovy-brown' : 'text-groovy-cream'
-                  }`}
+                  className="font-retro text-[10px] lg:text-sm text-groovy-cream hover:text-groovy-yellow transition-colors duration-200 uppercase tracking-wide whitespace-nowrap"
                 >
                   {item.label}
                 </a>
@@ -80,9 +74,7 @@ const Navigation: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md ${
-                scrolled || isOpen ? 'text-groovy-brown' : 'text-groovy-cream'
-              }`}
+              className="inline-flex items-center justify-center p-2 rounded-md text-groovy-cream hover:text-groovy-yellow"
             >
               {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
             </button>
@@ -91,14 +83,14 @@ const Navigation: React.FC = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-groovy-cream border-b-4 border-groovy-brown">
+        <div className="md:hidden bg-groovy-brown border-b-4 border-groovy-yellow">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-4 rounded-md text-base font-retro text-groovy-brown hover:text-groovy-pink hover:bg-groovy-yellow/30 border-l-4 border-transparent hover:border-groovy-pink transition-all uppercase"
+                className="block px-3 py-4 rounded-md text-base font-retro text-groovy-cream hover:text-groovy-yellow hover:bg-groovy-brownDeep/50 border-l-4 border-transparent hover:border-groovy-yellow transition-all uppercase tracking-wide"
               >
                 {item.label}
               </a>

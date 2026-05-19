@@ -39,7 +39,7 @@ const Countdown: React.FC = () => {
           {value < 10 ? `0${value}` : value}
         </span>
       </div>
-      <span className="mt-2 font-retro text-xs md:text-sm text-groovy-cream tracking-wider uppercase bg-groovy-brown px-3 py-1 rounded-full">
+      <span className="mt-2 font-groovy text-[10px] md:text-xs text-groovy-brown tracking-wider uppercase bg-groovy-cream px-3 py-1 rounded-full border-2 border-groovy-brown">
         {label}
       </span>
     </div>
