@@ -2,8 +2,7 @@ import React from 'react';
 import { Music, ExternalLink, Headphones, Volume2, Disc, Flower } from 'lucide-react';
 
 const MusicSection: React.FC = () => {
-  // Placeholder: usa o ID da playlist do site 80s — Sofia troca pelo ID da playlist anos 70 dela
-  const spotifyPlaylistId = "5d8J6I7gYvqkOEffw7K011";
+  const spotifyPlaylistId = "4kNe17BXIoBZbZ3JqqQaAn";
   const spotifyUrl = `https://open.spotify.com/playlist/${spotifyPlaylistId}`;
 
   return (
