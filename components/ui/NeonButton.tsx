@@ -5,21 +5,27 @@ interface NeonButtonProps {
   onClick?: () => void;
   className?: string;
   href?: string;
+  variant?: 'yellow' | 'pink' | 'cream';
 }
 
-const NeonButton: React.FC<NeonButtonProps> = ({ children, onClick, className = '', href }) => {
-  const styles = "relative inline-flex items-center justify-center px-10 py-4 font-retro font-bold uppercase tracking-widest text-groovy-bg bg-groovy-mustard rounded-full shadow-glow-mustard hover:scale-105 hover:bg-groovy-orange hover:shadow-glow-orange transition-all duration-300 focus:outline-none";
+const NeonButton: React.FC<NeonButtonProps> = ({ children, onClick, className = '', href, variant = 'yellow' }) => {
+  const bgMap = {
+    yellow: 'bg-groovy-yellow',
+    pink: 'bg-groovy-pink text-groovy-cream',
+    cream: 'bg-groovy-cream',
+  };
+  const styles = `inline-flex items-center justify-center px-8 py-3 font-groovy uppercase tracking-widest text-groovy-brown border-4 border-groovy-brown rounded-full sticker hover:translate-y-[-2px] active:translate-y-[1px] transition-transform ${bgMap[variant]}`;
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noreferrer" className={`${styles} ${className}`}>
+      <a href={href} target="_blank" rel="noopener noreferrer" className={`${styles} ${className}`}>
         {children}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className={`${styles} ${className}`}>
+    <button type="button" onClick={onClick} className={`${styles} ${className}`}>
       {children}
     </button>
   );

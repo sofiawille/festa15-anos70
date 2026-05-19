@@ -28,31 +28,29 @@ const Countdown: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+    const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  const TimeUnit = ({ value, label, color }: { value: number; label: string; color: string }) => (
-    <div className="flex flex-col items-center mx-2 md:mx-4">
-      <div className={`w-16 h-16 md:w-24 md:h-24 flex items-center justify-center rounded-full border-4 ${color} bg-groovy-bg shadow-[0_0_15px_rgba(0,0,0,0.5)]`}>
-        <span className={`font-retro text-2xl md:text-4xl ${color.replace('border-', 'text-')}`}>
+  const TimeUnit = ({ value, label, bg, rotate }: { value: number; label: string; bg: string; rotate: string }) => (
+    <div className={`flex flex-col items-center sticker-sm ${rotate}`}>
+      <div className={`w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-2xl border-4 border-groovy-brown ${bg}`}>
+        <span className="font-groovy text-2xl md:text-3xl text-groovy-brown">
           {value < 10 ? `0${value}` : value}
         </span>
       </div>
-      <span className="mt-2 font-retro text-xs md:text-sm text-groovy-cream tracking-wider uppercase">
+      <span className="mt-2 font-retro text-xs md:text-sm text-groovy-cream tracking-wider uppercase bg-groovy-brown px-3 py-1 rounded-full">
         {label}
       </span>
     </div>
   );
 
   return (
-    <div className="flex justify-center flex-wrap mt-8 gap-4">
-      <TimeUnit value={timeLeft.days} label="Dias" color="border-groovy-orange" />
-      <TimeUnit value={timeLeft.hours} label="Horas" color="border-groovy-mustard" />
-      <TimeUnit value={timeLeft.minutes} label="Min" color="border-groovy-red" />
-      <TimeUnit value={timeLeft.seconds} label="Seg" color="border-groovy-purple" />
+    <div className="flex justify-center flex-wrap mt-8 gap-3 md:gap-5">
+      <TimeUnit value={timeLeft.days} label="Dias" bg="bg-groovy-cream" rotate="-rotate-2" />
+      <TimeUnit value={timeLeft.hours} label="Horas" bg="bg-groovy-yellow" rotate="rotate-1" />
+      <TimeUnit value={timeLeft.minutes} label="Min" bg="bg-groovy-pink" rotate="-rotate-1" />
+      <TimeUnit value={timeLeft.seconds} label="Seg" bg="bg-groovy-turquoise" rotate="rotate-2" />
     </div>
   );
 };

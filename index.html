@@ -7,20 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bungee&family=DM+Sans:wght@400;500;700&family=Fugaz+One&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bungee&family=DM+Sans:wght@400;500;700&family=Fugaz+One&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               groovy: {
-                bg: '#1B1212',
-                cream: '#F4E4C1',
-                orange: '#FF6B35',
-                mustard: '#FFB627',
+                bg: '#E85A2F',
+                bgDeep: '#C9410E',
+                cream: '#FBE9C9',
+                creamDeep: '#F2D7A1',
+                brown: '#3A1F0F',
+                brownDeep: '#1F100A',
+                pink: '#E84A8D',
+                yellow: '#FFC72C',
+                turquoise: '#5BC2C9',
                 red: '#D7263D',
                 purple: '#6A4C93',
-                brown: '#8B4513',
+                mustard: '#F4A700',
+                orange: '#FF6B35',
               }
             },
             fontFamily: {
@@ -29,20 +35,15 @@
               funk: ['"Fugaz One"', 'sans-serif'],
               retro: ['"Alfa Slab One"', 'serif'],
               cursive: ['"Pacifico"', 'cursive'],
+              lobster: ['"Lobster"', 'cursive'],
             },
             animation: {
               'spin-slow': 'spin 8s linear infinite',
               'spin-slower': 'spin 30s linear infinite',
-              'spin-reverse': 'spin-reverse 12s linear infinite',
-              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'wave': 'wave 6s ease-in-out infinite',
               'sway': 'sway 4s ease-in-out infinite',
             },
             keyframes: {
-              'spin-reverse': {
-                '0%': { transform: 'rotate(360deg)' },
-                '100%': { transform: 'rotate(0deg)' },
-              },
               'wave': {
                 '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
                 '50%': { transform: 'translateY(-8px) rotate(2deg)' },
@@ -52,61 +53,98 @@
                 '50%': { transform: 'rotate(3deg)' },
               },
             },
-            boxShadow: {
-              'glow-orange': '0 0 20px #FF6B35, 0 0 40px rgba(255,107,53,0.4)',
-              'glow-mustard': '0 0 20px #FFB627, 0 0 40px rgba(255,182,39,0.4)',
-              'glow-purple': '0 0 20px #6A4C93, 0 0 40px rgba(106,76,147,0.4)',
-              'glow-red': '0 0 15px #D7263D, 0 0 30px rgba(215,38,61,0.3)',
-              'cream-soft': '0 0 5px #F4E4C1',
+            dropShadow: {
+              'sticker': '4px 4px 0 #3A1F0F',
+              'sticker-sm': '2px 2px 0 #3A1F0F',
             }
           }
         }
       }
     </script>
     <style>
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 5rem;
-      }
+      html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
       body {
-        background-color: #1B1212;
-        color: #F4E4C1;
+        background-color: #E85A2F;
+        color: #3A1F0F;
         overflow-x: hidden;
       }
-      .grain-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 50;
-        background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.06%22/%3E%3C/svg%3E');
-      }
+
       ::-webkit-scrollbar { width: 10px; }
-      ::-webkit-scrollbar-track { background: #1B1212; }
-      ::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 5px; }
-      ::-webkit-scrollbar-thumb:hover { background: #FFB627; }
-      .text-layered {
-        text-shadow: 2px 2px 0px #D7263D, 4px 4px 0px #6A4C93;
+      ::-webkit-scrollbar-track { background: #C9410E; }
+      ::-webkit-scrollbar-thumb { background: #FBE9C9; border-radius: 5px; }
+      ::-webkit-scrollbar-thumb:hover { background: #FFC72C; }
+
+      /* Daisy field — cream background */
+      .daisy-cream {
+        background-color: #FBE9C9;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cg transform='translate(30 30)' opacity='0.45'%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23E85A2F'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23E85A2F' transform='rotate(60)'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23E85A2F' transform='rotate(120)'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23E85A2F' transform='rotate(180)'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23E85A2F' transform='rotate(240)'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23E85A2F' transform='rotate(300)'/%3E%3Ccircle r='3.5' fill='%23FFC72C'/%3E%3C/g%3E%3Cg transform='translate(100 100)' opacity='0.45'%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23F4A700'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23F4A700' transform='rotate(60)'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23F4A700' transform='rotate(120)'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23F4A700' transform='rotate(180)'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23F4A700' transform='rotate(240)'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23F4A700' transform='rotate(300)'/%3E%3Ccircle r='3' fill='%23E85A2F'/%3E%3C/g%3E%3Cg transform='translate(95 35)' opacity='0.35'%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23E84A8D'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23E84A8D' transform='rotate(60)'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23E84A8D' transform='rotate(120)'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23E84A8D' transform='rotate(180)'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23E84A8D' transform='rotate(240)'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23E84A8D' transform='rotate(300)'/%3E%3Ccircle r='2.5' fill='%23FFC72C'/%3E%3C/g%3E%3Cg transform='translate(30 105)' opacity='0.35'%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23FFC72C'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23FFC72C' transform='rotate(60)'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23FFC72C' transform='rotate(120)'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23FFC72C' transform='rotate(180)'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23FFC72C' transform='rotate(240)'/%3E%3Cellipse cy='-7' rx='2.5' ry='5' fill='%23FFC72C' transform='rotate(300)'/%3E%3Ccircle r='2.5' fill='%23E85A2F'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 140px 140px;
       }
-      .sunburst-bg {
-        background: repeating-conic-gradient(
-          from 0deg,
-          #FF6B35 0deg 15deg,
-          #FFB627 15deg 30deg
-        );
+
+      /* Daisy field — orange background (subtle cream daisies on orange) */
+      .daisy-orange {
+        background-color: #E85A2F;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cg transform='translate(30 30)' opacity='0.20'%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23FBE9C9'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23FBE9C9' transform='rotate(60)'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23FBE9C9' transform='rotate(120)'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23FBE9C9' transform='rotate(180)'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23FBE9C9' transform='rotate(240)'/%3E%3Cellipse cy='-10' rx='3.5' ry='7' fill='%23FBE9C9' transform='rotate(300)'/%3E%3Ccircle r='3.5' fill='%23FFC72C'/%3E%3C/g%3E%3Cg transform='translate(100 100)' opacity='0.20'%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23FBE9C9'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23FBE9C9' transform='rotate(60)'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23FBE9C9' transform='rotate(120)'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23FBE9C9' transform='rotate(180)'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23FBE9C9' transform='rotate(240)'/%3E%3Cellipse cy='-8' rx='3' ry='6' fill='%23FBE9C9' transform='rotate(300)'/%3E%3Ccircle r='3' fill='%23F4A700'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 140px 140px;
       }
+
+      /* 3D Layered "Sticker" Text — main heading */
+      .text-3d-cream {
+        color: #FBE9C9;
+        text-shadow:
+          2px 2px 0 #3A1F0F,
+          4px 4px 0 #FFC72C,
+          6px 6px 0 #3A1F0F;
+        -webkit-text-stroke: 1.5px #3A1F0F;
+      }
+      .text-3d-yellow {
+        color: #FFC72C;
+        text-shadow:
+          2px 2px 0 #3A1F0F,
+          4px 4px 0 #E84A8D,
+          6px 6px 0 #3A1F0F;
+        -webkit-text-stroke: 1.5px #3A1F0F;
+      }
+      .text-3d-pink {
+        color: #E84A8D;
+        text-shadow:
+          2px 2px 0 #3A1F0F,
+          4px 4px 0 #FBE9C9,
+          6px 6px 0 #3A1F0F;
+        -webkit-text-stroke: 1.5px #3A1F0F;
+      }
+
+      /* Vinyl */
       .vinyl-grooves {
         background:
           repeating-radial-gradient(circle, #0a0a0a 0px, #0a0a0a 1px, #1a1a1a 2px, #1a1a1a 4px),
           radial-gradient(circle, #0a0a0a, #000);
       }
+
+      /* Rainbow swoosh — vertical stripes used as decorative borders */
+      .rainbow-swoosh {
+        background: linear-gradient(180deg,
+          #E84A8D 0%, #E84A8D 14%,
+          #D7263D 14%, #D7263D 28%,
+          #F4A700 28%, #F4A700 42%,
+          #FFC72C 42%, #FFC72C 56%,
+          #5BC2C9 56%, #5BC2C9 70%,
+          #6A4C93 70%, #6A4C93 84%,
+          #3A1F0F 84%);
+        border-radius: 999px;
+      }
+
+      /* Sticker card — slight rotation + hard shadow */
+      .sticker {
+        filter: drop-shadow(4px 4px 0 #3A1F0F);
+      }
+      .sticker-sm {
+        filter: drop-shadow(2px 2px 0 #3A1F0F);
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <div class="grain-overlay"></div>
     <script type="module" src="./index.tsx"></script>
   </body>
 </html>
