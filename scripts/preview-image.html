@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bungee&family=DM+Sans:wght@400;700&family=Lobster&family=Pacifico&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --groovy-cream: #FBE9C9;
+      --groovy-brown: #3A1F0F;
+      --groovy-brownDeep: #1F100A;
+      --groovy-pink: #E84A8D;
+      --groovy-yellow: #FFC72C;
+      --groovy-turquoise: #5BC2C9;
+      --groovy-red: #D7263D;
+      --groovy-purple: #6A4C93;
+      --groovy-mustard: #F4A700;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .stage {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      background-color: var(--groovy-brown);
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    /* Rainbow stripe top */
+    .stripe {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 14px;
+      display: flex;
+    }
+    .stripe > div { flex: 1; }
+
+    /* Stickers */
+    .sticker {
+      position: absolute;
+      filter: drop-shadow(4px 4px 0 var(--groovy-brownDeep));
+    }
+
+    /* Central content */
+    .content {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 0 80px;
+    }
+    .label {
+      display: inline-block;
+      background: var(--groovy-cream);
+      border: 5px solid var(--groovy-brown);
+      border-radius: 999px;
+      padding: 10px 30px;
+      transform: rotate(-2deg);
+      filter: drop-shadow(5px 5px 0 var(--groovy-brown));
+      font-family: 'Lobster', cursive;
+      font-size: 32px;
+      color: var(--groovy-brown);
+      margin-bottom: 12px;
+    }
+    .anos {
+      font-family: 'Bungee', cursive;
+      color: var(--groovy-cream);
+      font-size: 48px;
+      letter-spacing: 4px;
+      line-height: 1;
+      text-shadow:
+        3px 3px 0 var(--groovy-yellow),
+        6px 6px 0 var(--groovy-pink),
+        9px 9px 0 var(--groovy-brownDeep);
+      -webkit-text-stroke: 1.5px var(--groovy-brownDeep);
+      margin: 12px 0 8px;
+    }
+    .name {
+      font-family: 'Pacifico', cursive;
+      color: var(--groovy-yellow);
+      font-size: 180px;
+      line-height: 0.95;
+      margin: 0 0 12px;
+      text-shadow:
+        4px 4px 0 var(--groovy-pink),
+        8px 8px 0 var(--groovy-brown);
+      -webkit-text-stroke: 2.5px var(--groovy-brown);
+      display: inline-block;
+      transform: rotate(-3deg);
+    }
+    .date-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--groovy-yellow);
+      border: 5px solid var(--groovy-brown);
+      border-radius: 999px;
+      padding: 12px 30px;
+      filter: drop-shadow(5px 5px 0 var(--groovy-brown));
+      font-family: 'Bungee', cursive;
+      color: var(--groovy-brown);
+      font-size: 26px;
+      letter-spacing: 2px;
+      margin-top: 14px;
+      transform: rotate(1deg);
+    }
+    .date-pill .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--groovy-pink);
+      border-radius: 50%;
+      border: 2px solid var(--groovy-brown);
+    }
+    .cta-hint {
+      font-family: 'Pacifico', cursive;
+      color: var(--groovy-yellow);
+      font-size: 28px;
+      margin-top: 20px;
+      text-shadow: 2px 2px 0 var(--groovy-brownDeep);
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <!-- Rainbow stripe -->
+    <div class="stripe">
+      <div style="background:#E84A8D"></div>
+      <div style="background:#D7263D"></div>
+      <div style="background:#F4A700"></div>
+      <div style="background:#FFC72C"></div>
+      <div style="background:#5BC2C9"></div>
+      <div style="background:#6A4C93"></div>
+    </div>
+
+    <!-- Stickers: smiley, peace, flower, rainbow, star, heart, disco -->
+    <svg class="sticker" style="top: 70px; left: 60px; transform: rotate(-12deg); width: 90px;" viewBox="0 0 24 24" fill="#FFC72C" stroke="#3A1F0F" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="9.5" r="1.2" fill="#3A1F0F" stroke="none"/><circle cx="15" cy="9.5" r="1.2" fill="#3A1F0F" stroke="none"/><path d="M8 14 Q12 18 16 14" fill="none"/></svg>
+
+    <svg class="sticker" style="top: 90px; right: 80px; transform: rotate(12deg); width: 100px;" viewBox="0 0 24 24" fill="none" stroke="#FBE9C9" stroke-width="2.5"><circle cx="12" cy="12" r="10" fill="#3A1F0F"/><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="12" y1="12" x2="4.93" y2="19.07"/><line x1="12" y1="12" x2="19.07" y2="19.07"/></svg>
+
+    <svg class="sticker" style="top: 220px; left: 30px; transform: rotate(15deg); width: 75px;" viewBox="0 0 24 24" fill="#E84A8D" stroke="#3A1F0F" stroke-width="2"><path d="M12 2 C13.5 6 17 6 17 9 C17 11 15 12 12 14 C9 12 7 11 7 9 C7 6 10.5 6 12 2 Z"/><circle cx="12" cy="12" r="2.5" fill="#FFC72C" stroke="#3A1F0F"/></svg>
+
+    <svg class="sticker" style="top: 240px; right: 40px; transform: rotate(-8deg); width: 80px;" viewBox="0 0 24 24" fill="#D7263D" stroke="#3A1F0F" stroke-width="2"><path d="M12 21s-8-5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6-8 11-8 11Z"/></svg>
+
+    <svg class="sticker" style="bottom: 80px; left: 80px; transform: rotate(-5deg); width: 90px;" viewBox="0 0 32 18" fill="none" stroke-width="2.5"><path d="M2 17 A14 14 0 0 1 30 17" stroke="#E84A8D"/><path d="M4.5 17 A11.5 11.5 0 0 1 27.5 17" stroke="#D7263D"/><path d="M7 17 A9 9 0 0 1 25 17" stroke="#F4A700"/><path d="M9.5 17 A6.5 6.5 0 0 1 22.5 17" stroke="#FFC72C"/><path d="M12 17 A4 4 0 0 1 20 17" stroke="#5BC2C9"/></svg>
+
+    <svg class="sticker" style="bottom: 100px; right: 80px; transform: rotate(10deg); width: 75px;" viewBox="0 0 24 24" fill="#FFC72C" stroke="#3A1F0F" stroke-width="2"><polygon points="12,2 14.5,9 22,9 16,13.5 18.5,21 12,16.5 5.5,21 8,13.5 2,9 9.5,9"/></svg>
+
+    <svg class="sticker" style="top: 50%; left: 8px; transform: translateY(-50%) rotate(5deg); width: 60px;" viewBox="0 0 24 24" fill="#5BC2C9" stroke="#3A1F0F" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+
+    <svg class="sticker" style="top: 50%; right: 8px; transform: translateY(-50%) rotate(-10deg); width: 60px;" viewBox="0 0 24 24" fill="#6A4C93" stroke="#3A1F0F" stroke-width="2"><polygon points="12,2 14.5,9 22,9 16,13.5 18.5,21 12,16.5 5.5,21 8,13.5 2,9 9.5,9"/></svg>
+
+    <!-- CENTRAL CONTENT -->
+    <div class="content">
+      <div class="label">Você foi convidado(a)!</div>
+      <h2 class="anos">VIBE ANOS 70</h2>
+      <h1 class="name">Sofia 15 anos</h1>
+      <div class="date-pill">
+        <span>27 JUN 2026</span>
+        <span class="dot"></span>
+        <span style="color: #E84A8D;">SÁB · 19H</span>
+      </div>
+      <p class="cta-hint">🎁 Toque pra abrir seu presente</p>
+    </div>
+  </div>
+</body>
+</html>
